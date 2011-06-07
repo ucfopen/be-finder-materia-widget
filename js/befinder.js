@@ -6,18 +6,11 @@
 		
 		var input = this.html();
 		
-		var result = input.replace(/(\bam\b|\bis\b|\bare\b|\bwas\b|\bwere\b|\bbe\b|\bbeing\b|\bbeen\b)/gi, replacer);
+		var result = input.replace(/\b(am|is|are|was|were|be|being|been)\b/gi, replacer);
 		
 		function replacer (str, p1, offset, s) {
 			return "<strong class=\"bee\">" + p1/*.toUpperCase()*/ + "</strong>";
 		}
-		
-		/*if ( $("#result div.wysiwyg").length != 0 )
-			//$("destination").val(result).wysiwyg("destroy").wysiwyg({ controls : listaControls });
-			alert("true!");
-		else 
-			//$("#destination").val(result).wysiwyg({ controls : listaControls });
-			alert("false!");*/
 			
 		$("#destination").val(result).wysiwyg({ controls : listaControls });
 		$(".loading").remove();
@@ -80,19 +73,6 @@ $(document).ready(function(){
 	});
 	$(".submit").click(function(e){			
 		$("div.wysiwyg iframe").contents().find('body.wysiwyg').findBe( listaControls );				
-		/*$("div.wysiwyg iframe").contents().find(".bee").css({
-			//"border-radius" : "5px",
-			//"-moz-border-radius" : "5px",
-			//"-webkit-border-radius" : "5px",
-			//"background-color" : "#F9DB77"
-			
-			"border-radius" : "3px",
-			"background" : "-webkit-gradient(linear, left top, left bottom, from(#F7EC92), to(#FFBE4A)) ",
-			"padding" : "2px",
-			"margin" : "-2px",
-			"box-shadow" : "rgba(0, 0, 0, .25) 0px 1px 0px"
-
-		});	*/
 		e.preventDefault();
 	});
 	
@@ -106,11 +86,5 @@ $(document).ready(function(){
 	$(".reset").click(function(e){
 		$("#source").wysiwyg("clear");
 		e.preventDefault();
-	});
-	
-	
-	
-	
-	
-	
+	});	
 });
