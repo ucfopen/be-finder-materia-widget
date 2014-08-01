@@ -6,7 +6,7 @@
 		
 		var input = this.html();
 		
-		var result = input.replace(/\b(am|is|are|was|were|be|being|been)\b/gi, replacer);
+		var result = input.replace(/\b(am|is|are|was|were|be|being|been|will|would|i'm|you're|he's|she's|we're|they're|isn't|aren't|weren't|it's)\b/gi, replacer);
 		
 		function replacer (str, p1, offset, s) {
 			return "<strong class=\"bee\">" + p1/*.toUpperCase()*/ + "</strong>";
