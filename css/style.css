@@ -23,12 +23,13 @@ body {
 	text-indent: -9001px;
 }
 
-h2 {
+#input h2, #result h2 {
 	border-bottom: 1px solid #296879;
 	text-indent: -9001px;
 	padding-bottom: 5px;
 	margin-right: -11px;
 }
+
 
 #input {
 	position: relative;
