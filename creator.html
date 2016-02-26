@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- INJECTS IE CLASSES ONTO HTML TAG -->
+<!--[if IE 8 ]>    <html class="IE8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<head>
+		<title>Be Finder Creator</title>
+		<meta charset="utf-8" />
+
+		<!-- STYLESHEETS -->
+		<link rel="stylesheet" type="text/css" href="creator.css">
+
+		<!-- REQUIRED MATERIA JAVASCRIPT -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="materia.creatorcore.js"></script>
+
+		<!-- YOUR PREREQUISITES -->
+
+		<!-- MAIN CREATOR SCRIPT -->
+		<script src="creator.js"></script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<label>Your Widget Title:</label>
+				<div>
+					<input type='text' default='New Widget Title' id='title'/>
+				</div>
+			</div>
+			<div class='randomizer'>
+				<label>Randomize Answer Order:</label>
+				<input type='checkbox' id='randomize'/>
+			</div>
+		</header>
+		<div class='tutorial step1'>
+			To get started, first add a Title for your Widget, then create your first Question by clicking the Question creator Box above.
+		</div>
+		<div class='tutorial step2'>
+			Add your Question text, and up to four possible answers. Be sure to assign at least one correct answer, then click done to save.
+		</div>
+		<section class = 'import_area' id='import_area'>
+			<h1>Imported Questions</h1>
+			<div id='import_question_area'>
+				<span class='add'></span>
+			</div>
+			<button id='import_hide'>Hide</button>
+		</section>
+
+		<!-- templates -->
+		<div class='template question'>
+			<div class='question_text'></div>
+		</div>
+
+		<div class='template question_window'>
+			<section class='QA'>
+				<h1>Question:</h1>
+				<textarea id='question_text' default='Question Title Here'></textarea>
+				<h1>Answers:</h1>
+				<div id='answer_area' class='answer_area'>
+					<div id='add_answer' class='add_answer' tabindex=0>Click Here To Add An Answer
+					</div>
+				</div>
+			</section>
+			<aside>
+				<button id='save'>Save</button>
+				<button id='cancel'>Cancel</button>
+				<button id='delete'>Delete</button>
+			</aside>
+		</div>
+		<div class='template answer' data-letter="0">
+			<span class='letter'></span>
+			<input type='text' class='answer_text'/>
+			<input type='checkbox' class='answer_correct'/>
+			<input type='text' class='answer_value' value='0%'/>
+			<span class='answer_remove'></span>
+		</div>
+		<!-- /templates -->
+
+		<!-- INITIALIZE -->
+		<script type="text/javascript">
+			Materia.CreatorCore.start(BeFinder.Creator);
+		</script>
+	</body>
+</html>
