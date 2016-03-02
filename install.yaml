@@ -3,9 +3,9 @@ general:
   name: Be Finder
   group: Materia
   height: 600
-  width: 1100
+  width: 1050
   in_catalog: Yes
-  is_editable: Yes
+  is_editable: No
   is_playable: Yes
   is_qset_encrypted: Yes
   is_answer_encrypted: Yes
