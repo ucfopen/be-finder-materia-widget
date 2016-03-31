@@ -19,9 +19,5 @@ score:
   is_scorable: No
   score_module: BeFinder
 meta_data:
-  features:
-  supported_data:
-  about: 
-
-  # The text displayed on the widget catalog page.
-  excerpt: 
+  about: >
+    Be Finder is used to locate 'be' verbs such as 'be', 'am', 'being' etc. in any block of text.

@@ -1,84 +1,43 @@
 <!DOCTYPE html>
-<!-- INJECTS IE CLASSES ONTO HTML TAG -->
-<!--[if IE 8 ]>    <html class="IE8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
-	<head>
-		<title>Be Finder Creator</title>
-		<meta charset="utf-8" />
+<html ng-app="popupCreator">
+<head>
+	<meta charset="utf-8" />
+	<title>Materia POPUP Widget</title>
+	<link rel="stylesheet" href="creator.css">
+</head>
+<body ng-controller="popupCtrl">
 
-		<!-- STYLESHEETS -->
-		<link rel="stylesheet" type="text/css" href="creator.css">
+	<header>
+		{{widget.engineName}}
+	</header>
 
-		<!-- REQUIRED MATERIA JAVASCRIPT -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="materia.creatorcore.js"></script>
+	<div class="container">
+		<h1>How to create your widget:</h1>
+		<ol>
+			<li>
+				<p>
+					First, give your widget a name:
+				</p>
+				<input type="text" ng-model="widget.title" placeholder="Widget name..." />
+			</li>
 
-		<!-- YOUR PREREQUISITES -->
+			<li>
+				<p>
+					Then, click <b ng-if="!state.isEditingExistingWidget">Publish</b><b ng-if="state.isEditingExistingWidget">Update</b> at the top of the page.
+				</p>
+			</li>
+		</ol>
+	</div>
 
-		<!-- MAIN CREATOR SCRIPT -->
-		<script src="creator.js"></script>
-	</head>
-	<body>
-		<header>
-			<div>
-				<label>Your Widget Title:</label>
-				<div>
-					<input type='text' default='New Widget Title' id='title'/>
-				</div>
-			</div>
-			<div class='randomizer'>
-				<label>Randomize Answer Order:</label>
-				<input type='checkbox' id='randomize'/>
-			</div>
-		</header>
-		<div class='tutorial step1'>
-			To get started, first add a Title for your Widget, then create your first Question by clicking the Question creator Box above.
-		</div>
-		<div class='tutorial step2'>
-			Add your Question text, and up to four possible answers. Be sure to assign at least one correct answer, then click done to save.
-		</div>
-		<section class = 'import_area' id='import_area'>
-			<h1>Imported Questions</h1>
-			<div id='import_question_area'>
-				<span class='add'></span>
-			</div>
-			<button id='import_hide'>Hide</button>
-		</section>
+	<!-- REQUIRED MATERIA JS -->
+	<script type="text/javascript" src="materia.creatorcore.js"></script>
+	<script type="text/javascript" src="materia.storage.manager.js"></script>
+	<script type="text/javascript" src="materia.storage.table.js"></script>
 
-		<!-- templates -->
-		<div class='template question'>
-			<div class='question_text'></div>
-		</div>
+	<!-- YOUR PREREQUISITES -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
 
-		<div class='template question_window'>
-			<section class='QA'>
-				<h1>Question:</h1>
-				<textarea id='question_text' default='Question Title Here'></textarea>
-				<h1>Answers:</h1>
-				<div id='answer_area' class='answer_area'>
-					<div id='add_answer' class='add_answer' tabindex=0>Click Here To Add An Answer
-					</div>
-				</div>
-			</section>
-			<aside>
-				<button id='save'>Save</button>
-				<button id='cancel'>Cancel</button>
-				<button id='delete'>Delete</button>
-			</aside>
-		</div>
-		<div class='template answer' data-letter="0">
-			<span class='letter'></span>
-			<input type='text' class='answer_text'/>
-			<input type='checkbox' class='answer_correct'/>
-			<input type='text' class='answer_value' value='0%'/>
-			<span class='answer_remove'></span>
-		</div>
-		<!-- /templates -->
-
-		<!-- INITIALIZE -->
-		<script type="text/javascript">
-			Materia.CreatorCore.start(BeFinder.Creator);
-		</script>
-	</body>
+	<!-- MAIN APP -->
+	<script src="creator.js"></script>
+</body>
 </html>
