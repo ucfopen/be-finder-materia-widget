@@ -4,7 +4,7 @@ general:
   group: Materia
   height: 600
   width: 1050
-  in_catalog: Yes
+  in_catalog: No
   is_editable: No
   is_playable: Yes
   is_qset_encrypted: Yes
