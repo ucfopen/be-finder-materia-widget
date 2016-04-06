@@ -4,54 +4,54 @@
 <!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
 	<head>
-        <title>Be Finder</title>
+		<title>Be Finder</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" type="text/css" href="player.css">
-        <link rel="stylesheet" href="assets/css/style.css" media="all" />
-        <link rel="stylesheet" href="assets/css/jquery.wysiwyg.css" media="all"/>
-        <link rel="stylesheet" href="assets/css/wysiwyg.css" media="all"/>
+		<link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
 
 		<!-- REQUIRED MATERIA JAVASCRIPT -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="assets/browser_plugin/dist/jquery.browser.js"></script>
-        <script src="materia.enginecore.js"></script>
-        <script src="materia.score.js"></script>
+		<script src="materia.enginecore.js"></script>
+		<script src="materia.score.js"></script>
 
 		<!-- OPTIONAL MATERIA JAVASCRIPT -->
 		<!-- <script src="materia.storage.manager.js"></script> -->
 		<!-- <script src="materia.storage.table.js"></script> -->
 
 		<!-- YOUR PREREQUISITES -->
-		<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.assets/1.5.2/underscore-min.js"></script> -->
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-sanitize.min.js'></script>
 
 		<!-- MAIN PLAYER SCRIPT -->
-		<!-- <script src="player.js"></script> -->
+		<script src="player.js"></script>
 
-        <!-- BE FINDER SCRIPT -->
-        <script type="text/javascript" src="assets/jquery.wysiwyg.js"></script>
-        <script type="text/javascript" src="assets/befinder.js"></script>
+		<!-- BE FINDER SCRIPT -->
 	</head>
-	<body>
-		<div id="container">
-            <h1 id="logo">Be Finder</h1>
-             <div id="input">
-                <h2>Input</h2>
-                <!--button class="submit" value="find_be">Find "Be"</button-->
-                <textarea rows="" cols="" id="source"></textarea>
-                <button class="submit" value="find_be">Find "Be"</button>
-                <button class="reset" value="reset">Reset</button>
-            </div>
-            <div id="result">
-                <h2>Result</h2>
-                <textarea rows="" cols="" id="destination" disabled="disabled"></textarea>
-                <!--div id="destination"></div-->
-            </div>
-           <div id="instructions">
-                <h2>Instructions</h2>
-                <p>You can use this Be Finder to locate "be" verbs in your text--useful for writing in e-prime and for revising any of your writing.</p>
-            </div>
-        </div>
+	<body ng-app="befinder">
+		<div id="container" ng-controller="befinderCtrl">
+			<h1 id="logo">Be Finder</h1>
+			<div id="instructions">
+				<h2>Instructions</h2>
+				<p>You can use this Be Finder to locate "be" verbs in your text--useful for writing in e-prime and for revising any of your writing.</p>
+			</div>
+			 <div id="input">
+				<h2>Input</h2>
+				<textarea id="source" placeholder="Enter your text here." ng-model="input"></textarea>
+				<button class="submit"
+					value="find_be"
+					ng-click="findText()">Find "Be"</button>
+				<button class="reset"
+					value="reset"
+					ng-click="resetText()">Reset</button>
+			</div>
+			<div id="result">
+				<h2>Result</h2>
+				<div id="destination"
+					ng-class="{'active' : output.length > 0}"
+					ng-bind-html="output"></div>
+			</div>
+		</div>
 	</body>
 </html>
