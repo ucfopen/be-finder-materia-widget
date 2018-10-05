@@ -1,6 +1,6 @@
 befinder = angular.module 'befinder', ['ngSanitize']
 
-befinder.controller "befinderCtrl", ($scope) ->
+befinder.controller "befinderCtrl", ['$scope', ($scope) ->
 
 	$scope.input = ''
 	$scope.output = ''
@@ -17,3 +17,4 @@ befinder.controller "befinderCtrl", ($scope) ->
 	$scope.resetText = ->
 		$scope.input = ''
 		$scope.output = ''
+]
