@@ -3,23 +3,35 @@
   "materia": {
     "cleanName": "be-finder"
   },
-  "version": "1.0.0",
-  "jest": {
-    "collectCoverageFrom": [
-      "build/**/*.js"
-    ]
-  },
-  "scripts": {
-    "pretest": "yarn build-dev",
-    "test": "jest --verbose",
-    "test:coverage": "jest --verbose --coverage --coverageReporters html",
-    "start": "webpack-dev-server",
-    "build-dev": "webpack",
-    "build": "webpack -p"
-  },
-  "devDependencies": {
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-mocks": "^1.7.5",
+    "angular-sanitize": "^1.7.5",
     "jest": "^23.6.0",
+    "jest-coffee-preprocessor": "^1.0.0",
     "materia-widget-development-kit": "v1.2.2"
   },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build-dev": "webpack",
+    "build": "webpack -p",
+    "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters html"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.coffee$": "<rootDir>/node_modules/jest-coffee-preprocessor/index.js"
+    },
+    "moduleFileExtensions": [
+      "coffee",
+      "js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,coffee}"
+    ]
+  },
+  "version": "1.0.0",
+  "author": "University of Central Florida, Center for Distributed Learning",
+  "description": "This is used to locate 'be' verbs such as 'be', 'am', 'being' etc. in any block of text.",
   "license": "AGPL-3.0"
 }

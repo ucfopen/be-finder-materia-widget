@@ -1,6 +1,6 @@
-PopupCreator = angular.module( 'popupCreator', [] )
+Creator = angular.module('creator', [] )
 
-PopupCreator.controller 'popupCtrl', ['$scope', ($scope) ->
+Creator.controller 'creatorCtrl', ['$scope', ($scope) ->
 	$scope.widget =
 		engineName: ""
 		title     : ""

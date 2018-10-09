@@ -13,7 +13,6 @@ befinder.controller "befinderCtrl", ['$scope', ($scope) ->
 		replaced = $scope.input.replace /\b(am|is|are|was|were|be|being|been)\b/gi, replacer
 		$scope.output = replaced
 
-
 	$scope.resetText = ->
 		$scope.input = ''
 		$scope.output = ''
