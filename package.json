@@ -4,9 +4,9 @@
     "cleanName": "be-finder"
   },
   "dependencies": {
-    "angular": "^1.7.5",
-    "angular-mocks": "^1.7.5",
-    "angular-sanitize": "^1.7.5",
+    "angular": "^1.6.9",
+    "angular-mocks": "^1.6.9",
+    "angular-sanitize": "^1.6.9",
     "jest": "^23.6.0",
     "jest-coffee-preprocessor": "^1.0.0",
     "materia-widget-development-kit": "^2.0.0"
@@ -26,8 +26,7 @@
     },
     "moduleFileExtensions": [
       "coffee",
-      "js",
-      "json"
+      "js"
     ],
     "collectCoverageFrom": [
       "src/**/*.coffee"
