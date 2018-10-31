@@ -1,6 +1,6 @@
 befinder = angular.module 'befinder', ['ngSanitize']
 
-befinder.controller "befinderCtrl", ($scope) ->
+befinder.controller "befinderCtrl", ['$scope', ($scope) ->
 
 	$scope.input = ''
 	$scope.output = ''
@@ -13,7 +13,7 @@ befinder.controller "befinderCtrl", ($scope) ->
 		replaced = $scope.input.replace /\b(am|is|are|was|were|be|being|been)\b/gi, replacer
 		$scope.output = replaced
 
-
 	$scope.resetText = ->
 		$scope.input = ''
 		$scope.output = ''
+]
