@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - '6'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  - npm config set spin false
+  - npm install -g npm@^5
+script:
+  - yarn test-ci
+  - yarn build
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: "ckBWB+RcLx3X2YkATV1qKzBX4gPSRka+Ts9amb1Ilm60rHxTs5LonVZpA0b9tA8Ylg82TyfFdp1yIiTtHX0qJKIWjbe2Z1F+KQmdlo2Bfxa3CK1zVBeCXltD2lN1gPxku1x77YqymVf+n5nD0AF2VinN7Mmq2s2gR6Jthy9HgVoTjXQA68pSo/YnMwoSAZ53Y8XnTIwmqfZZHgnjlpmd4z+/ZaXpqUL96UhHBXaQrBWtpgAcRyIko+naQInC+CKqkWUWjMKe7DeOz4640gTTcZ4Lp7x26FjmCbdV30UXGj5hiYHxdIL+sIdgXHpUO72GA7MGaG8SF3JXLAaEY5nHTa+SmTGB2nln1g77QZUmaGNMu/XsFE3ZfsMWHp2Pm9UPwijiTjLvZbt9eTsREwXnjEdb3dOhSBlOvmatN9jkb0d9zj9joKTXkhB06AChOl8jzGSZ0aNrKM3Bqdy5lbxicbAJlAA5anf6Q0Oo86Q9TkfAUfhd5h9VrEX2FVBiIj9Woy2I82n8SxnssmLK9K7ammBMDgpysAzt2oTXwRp8CKZQoEhKV9SozBnde000SLT0OJ5hgA6E3ua60n1r4hYPVrP+7KJcV94ct41/DrwhdnH2fjBuB3ijWZtk6dpVlm20ZDcLPkX5C5/m2bUvjSx5ptVr8r+Vj+p9A56EjhU1n2s="
+  file:
+    - build/_output/be-finder.wigt
+    - build/_output/be-finder-build-info.yml
+  on:
+    tags: true
+    repo: ucfopen/be-finder-materia-widget
+notifications:
+  email: false
+  slack:
+    secure: "YReqocIN725Q9iqfVusxYDfAnEKXPqJgd8hQET2cSif1N6+4xD0yLlHeoDDDXe82xXvERbTU6qHFSdHumsB/bBz9bGWGYAETMtPxECh9sTJwXjbPTKhv31ztaJLfOvVi85fK/7wqJj7HgoAx20/D3snHhoBimrPT8jqScKDrUs1S0OdBP33RQ0Ckx+BgXJZVMTNMErc7i7DzesTVYnLcLSfiRMu7BUKuIdT35dVWXzq/uBU7T1EFe262BFZKpRSJ+y8GQ6C5vsPHeBXyzGZfduP8EsjRZke1n+FlpthQi+i5I32wYO/1W9a5AWI2F748NGeOKQ1UJDHPOkC1X526KSFwohbIJ9AQRtk3qe+amQeEvhszFOqqOeyo4K7v5b2VL+b7ibuWrOywyNuxTzR39melnQMrO1Dqd8qq/0VR0SrR05631DLnNk9jt/ExwiC2FaNDv0Rjs7qN3pxruvPVsO5/mwgsumwMtz37BCPlaVCOoHXQerx59i0VREehoNYgB0DZPgLYU77Mb61NoFJVgkLGD5OYaJXDi5qiXiSchzbmvh0oFrhDiaK4juG8GPcNnXZfLwaUL5ehn0ZL0Cmyo+86UXZ6JzZ9PV5tgyfPT0UUSp2qHr4vTO0npaRw4CQtOudx5uo+4vKXDd2YlNTbkFQikMgS2ATvL+CwThgtaOs="

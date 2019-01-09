@@ -9,7 +9,7 @@
     "angular-sanitize": "^1.6.9",
     "jest": "^23.6.0",
     "jest-coffee-preprocessor": "^1.0.0",
-    "materia-widget-development-kit": "^2.0.0"
+    "materia-widget-development-kit": "^2.3.0"
   },
   "scripts": {
     "start": "webpack-dev-server",
